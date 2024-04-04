@@ -18,9 +18,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: const Text('GPIO LED'),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             getElevatedButtonLedOn(),
             const SizedBox(
