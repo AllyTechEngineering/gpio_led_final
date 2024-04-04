@@ -11,6 +11,17 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   // Creating an instance of the class and assigning it to the variable.
   final GpioLedOne gpioLedOne = GpioLedOne();
+  @override
+  void initState() {
+    gpioLedOne.initGpio16Output();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    gpioLedOne.disposeGpio();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.blueAccent,
         title: const Text('GPIO LED'),
+        centerTitle: true,
       ),
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             getElevatedButtonLedOn(),
             const SizedBox(
